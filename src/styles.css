@@ -1,14 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
-
 * {
   margin: 0;
   padding: 0;
   font-family: "Lato", sans-serif;
   font-size: 1rem;
   color: #333;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -19,8 +18,4 @@ body {
 }
 
 /* Responsive Styles */
-@media screen and (max-width: 767px) {
-}
-
-@media screen and (max-width: 575px) {
-}
+/*# sourceMappingURL=styles.css.map */
