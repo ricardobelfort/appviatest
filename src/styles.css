@@ -18,76 +18,168 @@ body {
   height: 100%;
 }
 
-.topbar {
+label,
+input,
+select,
+button {
+  display: block;
   width: 100%;
-  height: 80px;
-  background-color: #e0e0e0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  margin-bottom: 5px;
+  font-size: 0.875rem;
 }
 
-.topbar .navbar {
-  width: 1100px;
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.topbar .navbar-logo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.topbar .navbar-logo h1 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-left: 20px;
-}
-
-.topbar .navbar-links {
-  list-style: none;
-  background-color: #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.topbar .navbar-links-item {
-  display: inline;
-  margin: 10px 20px;
-}
-
-.topbar .navbar-links-item:nth-child(2) {
-  border-left: 1px solid #333;
-  padding-left: 20px;
-  border-right: 1px solid #333;
-  padding-right: 20px;
-  margin: 0;
-}
-
-.topbar .navbar-links-item a {
-  text-decoration: none;
+input[type="text"],
+input[type="number"],
+select {
+  padding: 10px;
+  font-size: 0.875rem;
+  border: 1px solid #979797;
+  border-radius: 4px;
+  margin-bottom: 20px;
 }
 
 .container {
   max-width: 1100px;
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 30px 0;
+}
+
+.container .box-transaction {
+  width: 400px;
+  margin-right: 20px;
+  padding: 20px 15px;
+  border: 1px solid #979797;
+  border-radius: 4px;
+}
+
+.container .box-transaction h1 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.container .box-transaction .btn {
+  background-color: #333;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.container .box-transaction .btn:hover {
+  background-color: #000;
+}
+
+.container .box-history {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 20px 15px;
+}
+
+.container .box-history h1 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.container .box-history table {
+  width: 100%;
+}
+
+.container .box-history table thead tr {
+  border-top: 0;
+  border-bottom: 1px solid #979797;
+}
+
+.container .box-history table thead tr th {
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #000;
+  padding: 8px 0;
+}
+
+.container .box-history table td {
+  padding: 8px 0;
+  font-size: 0.875rem;
+  color: #000;
+}
+
+.container .box-history table tbody tr {
+  border-top: 1px double #979797;
+}
+
+.container .box-history table tfoot tr {
+  border-top: 5px double #979797;
+}
+
+.container .box-history table .id {
+  width: 6%;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.container .box-history table .desc {
+  width: 54%;
+}
+
+.container .box-history table .price {
+  width: 40%;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.container .box-history table .total {
+  width: 40%;
+  text-align: right;
+  padding-right: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.container .box-history table .total span {
+  font-size: 0.75rem;
+}
+
+.container .box-history table,
+.container .box-history th,
+.container .box-history td {
+  border-collapse: collapse;
+}
+
+.container .box-empty {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 20px 15px;
+}
+
+.container .box-empty h1 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 /* Responsive Styles */
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 20px;
+  }
+}
 /*# sourceMappingURL=styles.css.map */
