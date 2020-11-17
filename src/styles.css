@@ -29,9 +29,16 @@ button {
 }
 
 input[type="text"],
-input[type="number"],
-select {
+input[type="number"] {
   padding: 10px;
+  font-size: 0.875rem;
+  border: 1px solid #979797;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+select {
+  padding: 9px;
   font-size: 0.875rem;
   border: 1px solid #979797;
   border-radius: 4px;
@@ -177,9 +184,104 @@ select {
 }
 
 /* Responsive Styles */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .container {
     padding: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .container .box-transaction {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+  .container .box-transaction form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .container .box-transaction form .tipo {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+  .container .box-transaction form .mercadoria {
+    -webkit-box-flex: 5;
+        -ms-flex-positive: 5;
+            flex-grow: 5;
+    margin: 0 10px;
+  }
+  .container .box-transaction form .valor {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+  .container .box-transaction form button {
+    width: 240px;
+  }
+  .container .box-history {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 411px) {
+  .container {
+    padding: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .container .box-transaction {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    margin-right: 0;
+    margin-bottom: 30px;
+    border: 0;
+    padding: 0 0 30px 0;
+    border-bottom: 1px solid #333;
+    border-radius: 0;
+  }
+  .container .box-transaction h1 {
+    display: none;
+  }
+  .container .box-transaction form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .container .box-transaction form .tipo {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+  .container .box-transaction form .mercadoria {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    margin: 0;
+  }
+  .container .box-transaction form .valor {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+  .container .box-transaction form button {
+    width: 100%;
+  }
+  .container .box-history {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
   }
 }
 /*# sourceMappingURL=styles.css.map */

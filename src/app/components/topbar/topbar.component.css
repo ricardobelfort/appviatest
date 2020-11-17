@@ -118,11 +118,11 @@
 }
 
 /* Responsive Styles */
-@media screen and (max-width: 767px) {
-  .navbar {
+@media screen and (max-width: 768px) {
+  .topbar .navbar {
     display: none !important;
   }
-  .navbar-mobile {
+  .topbar .navbar-mobile {
     width: 768px;
     margin: 0 auto;
     display: -webkit-box;
@@ -136,13 +136,22 @@
             align-items: center;
     padding: 0 20px;
   }
-  .navbar-mobile h1 {
+  .topbar .navbar-mobile h1 {
     font-size: 1.2rem;
     font-weight: 700;
     margin-left: 20px;
   }
-  .navbar-mobile-toggle {
+  .topbar .navbar-mobile-toggle {
     color: #333;
+  }
+}
+
+@media screen and (max-width: 411px) {
+  .topbar .sidebar {
+    margin: 0;
+  }
+  .topbar .sidebar ul {
+    width: 320px;
   }
 }
 /*# sourceMappingURL=topbar.component.css.map */
