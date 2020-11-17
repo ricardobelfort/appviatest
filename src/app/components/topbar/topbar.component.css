@@ -119,6 +119,9 @@
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
+  .topbar {
+    height: 60px;
+  }
   .topbar .navbar {
     display: none !important;
   }
@@ -139,7 +142,6 @@
   .topbar .navbar-mobile h1 {
     font-size: 1.2rem;
     font-weight: 700;
-    margin-left: 20px;
   }
   .topbar .navbar-mobile-toggle {
     color: #333;
