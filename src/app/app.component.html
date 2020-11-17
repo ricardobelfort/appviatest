@@ -1,19 +1,72 @@
-<header class="topbar">
-  <nav class="navbar">
-    <div class="navbar-logo">
-      <img src="../assets/images/logo.svg" width="40" alt="" />
-      <h1>Controle Financeiro</h1>
-    </div>
-    <ul class="navbar-links">
-      <li class="navbar-links-item">
-        <a href="javascript:;">Dashboard</a>
-      </li>
-      <li class="navbar-links-item">
-        <a href="javascript:;">Resumo</a>
-      </li>
-      <li class="navbar-links-item">
-        <a href="javascript:;">Configurações</a>
-      </li>
-    </ul>
-  </nav>
-</header>
+<app-topbar></app-topbar>
+<main class="container">
+  <div class="box-transaction">
+    <h1>{{ title }}</h1>
+    <form [formGroup]="form">
+      <label for="type">Tipo de transação</label>
+      <select id="type" formControlName="tipo">
+        <option [selected]="selected" disabled>
+          Selecione um tipo de transação
+        </option>
+        <option value="-">Compra</option>
+        <option value="+">Venda</option>
+      </select>
+
+      <label for="nome">Nome da mercadoria</label>
+      <input
+        type="text"
+        id="nome"
+        formControlName="nome"
+        placeholder="Mercadoria..."
+        maxlength="100"
+      />
+      <label for="valor">Valor</label>
+      <input
+        type="number"
+        id="valor"
+        formControlName="valor"
+        placeholder="R$ 0,00"
+        maxlength="10"
+      />
+      <button class="btn" type="submit" (click)="add()">
+        Adicionar Transação
+      </button>
+    </form>
+  </div>
+
+  <div class="box-history">
+    <h1>Extrato de Transações</h1>
+    <table>
+      <thead>
+        <tr>
+          <th class="id">#</th>
+          <th class="desc">Mercadoria</th>
+          <th class="price">Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let register of registers">
+          <td class="id">{{ register.tipo }}</td>
+          <td class="desc">{{ register.nome }}</td>
+          <td class="price">
+            {{ register.valor | currency: "BRL":"symbol":"0.0-2":"pt" }}
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td class="id"></td>
+          <td class="desc">TOTAL</td>
+          <td class="total">
+            {{ totalSum | currency: "BRL":"symbol":"0.0-2":"pt" }} <br />
+            <span>[ {{ totalSum >= 0 ? "LUCRO" : "PREJUÍZO" }} ]</span>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <!-- <div class="box-empty">
+    <h1>Não há histórico de transações!</h1>
+  </div> -->
+  <router-outlet></router-outlet>
+</main>
