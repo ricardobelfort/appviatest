@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./topbar.component.scss']
 })
 export class TopbarComponent implements OnInit {
+  title: string = "Controle Financeiro";
+  showMenu: boolean = false;
 
   constructor() { }
 

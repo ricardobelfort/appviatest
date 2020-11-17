@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="navbar-logo">
       <img src="../assets/images/logo.svg" width="40" alt="" />
-      <h1>Controle Financeiro</h1>
+      <h1>{{ title }}</h1>
     </div>
     <ul class="navbar-links">
       <li class="navbar-links-item">
@@ -16,4 +16,35 @@
       </li>
     </ul>
   </nav>
+  <nav class="navbar-mobile">
+    <img src="../assets/images/logo.svg" width="40" alt="" />
+    <h1>{{ title }}</h1>
+    <a
+      href="javascript:;"
+      class="navbar-mobile-toggle"
+      (click)="showMenu = !showMenu"
+    >
+      <i-feather name="menu"></i-feather>
+    </a>
+  </nav>
+  <aside class="sidebar" [hidden]="!showMenu">
+    <ul>
+      <li class="btn-close">
+        <svg
+          height="64"
+          viewBox="0 0 329.26933 329"
+          width="64"
+          xmlns="http://www.w3.org/2000/svg"
+          (click)="showMenu = !showMenu"
+        >
+          <path
+            d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"
+          />
+        </svg>
+      </li>
+      <li><a href="">Dashboard</a></li>
+      <li><a href="">Resumo</a></li>
+      <li><a href="">Configurações</a></li>
+    </ul>
+  </aside>
 </header>
