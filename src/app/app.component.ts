@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Register } from './models/register.model';
 
@@ -7,33 +7,31 @@ import { Register } from './models/register.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   form!: FormGroup;
   title: string = 'Nova Transação';
   registers: Register[] = [];
   selected: string = 'Selecione';
   totalSum: number = 0;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder) { }
 
+  ngOnInit() {
     this.form = this.fb.group({
-      // id: [null],
       tipo: [null],
       nome: [null, [Validators.maxLength(100)]],
       valor: [null, [Validators.maxLength(10)]]
     });
 
-    if (this.form.value !== null) {
-      this.load();
-    }
-
+    this.load();
   }
 
   add() {
-    // const id = this.registers.length + 1;
+
     const tipo = this.form.controls['tipo'].value;
     const nome = this.form.controls['nome'].value;
-    const valor = this.form.controls['tipo'].value === '-' ? this.form.controls['valor'].value * -1 : this.form.controls['valor'].value;
+    const valor = this.form.controls['tipo'].value === 'compra' ? this.form.controls['valor'].value * -1 : this.form.controls['valor'].value;
+
     this.registers.push(new Register(tipo, nome, valor));
     this.save();
     this.calc();
@@ -52,6 +50,16 @@ export class AppComponent {
 
   load() {
     const data = localStorage.getItem('registers')!;
-    this.registers = JSON.parse(data);
+
+    if (data !== null) {
+      this.registers = JSON.parse(data);
+    }
+
   }
+
+  cleanHistory() {
+    localStorage.clear();
+    this.registers = [];
+  }
+
 }

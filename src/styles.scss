@@ -87,12 +87,38 @@ select {
     flex: 1;
     padding: 20px 15px;
 
-    h1 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #000;
-      margin-bottom: 20px;
-      text-align: center;
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid #333;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+
+      h1 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #000;
+        text-align: center;
+      }
+
+      a {
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: #979797;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+          color: #000;
+        }
+
+        small {
+          width: 18px;
+          height: 18px;
+        }
+      }
     }
 
     table {

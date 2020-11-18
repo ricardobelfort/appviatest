@@ -4,10 +4,13 @@
     <h1>{{ title }}</h1>
     <form [formGroup]="form">
       <div class="tipo">
-        <label for="type">Tipo de transação</label>
-        <select id="type" formControlName="tipo">
-          <option value="-" selected>Compra</option>
-          <option value="+">Venda</option>
+        <label for="tipo">Tipo de transação</label>
+        <select id="tipo" formControlName="tipo">
+          <option value="Selecione um tipo" [selected]="true" disabled>
+            Selecione um tipo de transação
+          </option>
+          <option value="compra">Compra</option>
+          <option value="venda">Venda</option>
         </select>
       </div>
 
@@ -40,7 +43,10 @@
   </div>
 
   <div class="box-history">
-    <h1>Extrato de Transações</h1>
+    <header>
+      <h1>Extrato de Transações</h1>
+      <a href="javascript:;" (click)="cleanHistory()">Limpar</a>
+    </header>
     <table>
       <thead>
         <tr>
@@ -51,7 +57,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let register of registers">
-          <td class="id">{{ register.tipo }}</td>
+          <td class="id">{{ register.tipo === "compra" ? "-" : "+" }}</td>
           <td class="desc">{{ register.nome }}</td>
           <td class="price">
             {{ register.valor | currency: "BRL":"symbol":"0.0-2":"pt" }}
@@ -64,14 +70,13 @@
           <td class="desc">TOTAL</td>
           <td class="total">
             {{ totalSum | currency: "BRL":"symbol":"0.0-2":"pt" }} <br />
-            <span>[ {{ totalSum >= 0 ? "LUCRO" : "PREJUÍZO" }} ]</span>
+            <span>{{
+              totalSum > 0 ? "[LUCRO]" : totalSum < 0 ? "[PREJUÍZO]" : ""
+            }}</span>
           </td>
         </tr>
       </tfoot>
     </table>
   </div>
-  <!-- <div class="box-empty">
-    <h1>Não há histórico de transações!</h1>
-  </div> -->
   <router-outlet></router-outlet>
 </main>
